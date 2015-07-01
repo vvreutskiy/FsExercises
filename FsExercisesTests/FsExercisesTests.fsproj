@@ -53,7 +53,8 @@
   </Choose>
   <Import Project="$(FSharpTargetsPath)" />
   <ItemGroup>
-    <Compile Include="ch01tests.fs" />
+    <Compile Include="Ch01tests.fs" />
+    <Compile Include="Ch02tests.fs" />
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
