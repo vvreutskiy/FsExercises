@@ -86,11 +86,5 @@ module Ch02tests =
         let g (x:int) (y:float) = sprintf "int:%d float:%f" x y
         test <@ f (1, 2.0) = "int:1 float:2.000000" @>
         test <@ g 1 2.0 = "int:1 float:2.000000" @>
-        test <@ 
-            (e1301 f) 1 2.0 = g 1 2.0 && 
-            g 1 2.0 = "int:1 float:2.000000" 
-        @>
-        test <@ 
-            (e1302 g) (1, 2.0) = f (1, 2.0) && 
-            f (1, 2.0) = "int:1 float:2.000000" 
-        @>
+        test <@ (e1301 f) 1 2.0 = g 1 2.0 && g 1 2.0 = "int:1 float:2.000000" @>
+        test <@ (e1302 g) (1, 2.0) = f (1, 2.0) && f (1, 2.0) = "int:1 float:2.000000" @>

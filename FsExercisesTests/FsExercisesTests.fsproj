@@ -56,6 +56,7 @@
     <Compile Include="Common.fs" />
     <Compile Include="Ch01tests.fs" />
     <Compile Include="Ch02tests.fs" />
+    <Compile Include="Ch03tests.fs" />
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

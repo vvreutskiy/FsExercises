@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Ch01.fs" />
     <Compile Include="Ch02.fs" />
+    <Compile Include="Ch03.fs" />
   </ItemGroup>
   <PropertyGroup>
     <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>
