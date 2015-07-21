@@ -31,3 +31,15 @@ module Ch04 =
                if n = 0 then None
                else Some(n, n - 1))
         |> List.ofSeq
+    
+    let e03 n = e0101 n |> List.filter (fun x -> x % 2 = 0)
+    
+    let rec e04 lst = 
+        match lst, List.length lst with
+        | _, 0 -> 0
+        | x :: xs, n -> x * (int (-1. ** (float n - 1.0))) + (e04 xs)
+
+    let rec e05 = function
+        | [] -> []
+        | [x] -> [x]
+        | x0 :: x1 :: xs -> x0 :: e05 xs
