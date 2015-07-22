@@ -38,8 +38,47 @@ module Ch04 =
         match lst, List.length lst with
         | _, 0 -> 0
         | x :: xs, n -> x * (int (-1. ** (float n - 1.0))) + (e04 xs)
-
-    let rec e05 = function
+    
+    let rec e05 = 
+        function 
         | [] -> []
-        | [x] -> [x]
+        | [ x ] -> [ x ]
         | x0 :: x1 :: xs -> x0 :: e05 xs
+    
+    let rec e06 = 
+        function 
+        | [] -> []
+        | x :: xs when x % 2 = 0 -> e06 xs
+        | x :: xs -> x :: e06 xs
+    
+    let e07 elem lst = 
+        let rec loop lst' acc = 
+            match lst' with
+            | [] -> acc
+            | x :: xs when x = elem -> loop xs (acc + 1)
+            | x :: xs -> loop xs acc
+        loop lst 0
+    
+    let e08 lst = 
+        let rec loop src left right = 
+            match src with
+            | [] -> (left, right)
+            | x0 :: x1 :: xs -> loop xs (x0 :: left) (x1 :: right)
+            | [ x ] -> (x :: left, right)
+        
+        let r, l = loop (List.rev lst) [] []
+        l, r
+    
+    let e09 (left : 'a list, right : 'a list) = 
+        let rec loop acc l r = 
+            match l, r with
+            | [], [] -> acc
+            | (l :: ls, r :: rs) -> loop (r :: l :: acc) ls rs
+            | _ -> failwith "left and right lists are not of equal length"
+        List.rev (loop [] left right)
+
+    let rec e10 (pref: 'a list) (lst: 'a list) = 
+        match pref, lst with
+        | [], _ -> true
+        | p::ps, l::ls when p = l -> e10 ps ls
+        | _ -> false
