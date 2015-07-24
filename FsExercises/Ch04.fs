@@ -76,9 +76,26 @@ module Ch04 =
             | (l :: ls, r :: rs) -> loop (r :: l :: acc) ls rs
             | _ -> failwith "left and right lists are not of equal length"
         List.rev (loop [] left right)
-
-    let rec e10 (pref: 'a list) (lst: 'a list) = 
+    
+    let rec e10 (pref : 'a list) (lst : 'a list) = 
         match pref, lst with
         | [], _ -> true
-        | p::ps, l::ls when p = l -> e10 ps ls
+        | p :: ps, l :: ls when p = l -> e10 ps ls
         | _ -> false
+    
+    let e1101 (lst, el) = 
+        let rec loop lst' found = 
+            match lst' with
+            | [] -> found
+            | x :: xs when x < el -> loop xs found
+            | x :: xs when x = el -> loop xs (found + 1)
+            | x :: xs when x > el -> found
+        loop lst 0
+    
+    let e1102 (lst, el) = 
+        let rec loop left right = 
+            match right with
+            | [] -> left @ right @ [ el ]
+            | x :: xs when x < el -> loop (left @ [ x ]) xs
+            | x :: xs when x >= el -> left @ [ el ] @ right
+        loop [] lst
