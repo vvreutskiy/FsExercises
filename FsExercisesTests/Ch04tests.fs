@@ -44,14 +44,14 @@ module Ch04tests =
     
     [<Fact>]
     let ``e07 test``() = 
-        <@ e07 1 [ 1; 2; 1; 1; 2; 3 ] = 3 @>
-        <@ e07 true [ true; false; false; true ] = 2 @>
+        test <@ e07 1 [ 1; 2; 1; 1; 2; 3 ] = 3 @>
+        test <@ e07 true [ true; false; false; true ] = 2 @>
     
     [<Fact>]
-    let ``e08 test``() = e08 [ 1; 2; 3; 4; 5; 6 ] =! ([ 1; 3; 5 ], [ 2; 4; 6 ])
+    let ``e08 test``() = test <@ e08 [ 1; 2; 3; 4; 5; 6 ] = ([ 1; 3; 5 ], [ 2; 4; 6 ]) @>
     
     [<Fact>]
-    let ``e09 test``() = e09 ([ 1; 3; 5; 7 ], [ 2; 4; 6; 8 ]) =! [ 1; 2; 3; 4; 5; 6; 7; 8 ]
+    let ``e09 test``() = test <@ e09 ([ 1; 3; 5; 7 ], [ 2; 4; 6; 8 ]) = [ 1; 2; 3; 4; 5; 6; 7; 8 ] @>
     
     [<Fact>]
     let ``e10 test``() = 
@@ -67,4 +67,4 @@ module Ch04tests =
         test <@ e1102 ([ 1; 2; 3; 4; 5; 6 ], 4) = [ 1; 2; 3; 4; 4; 5; 6 ] @>
 
     [<Fact>]
-    let ``e1103 test``() = true
+    let ``e1103 test``() = test <@ false @>
